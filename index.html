@@ -1,28 +1,46 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <Title>Hello world</Title>
-    </head>
-
-    <body>
-        <h1>Ibrahim qaisi adores Ronaldo.</h1>
-    </body>
-
-    <div id="game">
-        <div class="row">
-          <div class="square" id="sq1"></div>
-          <div class="square" id="sq2"></div>
-          <div class="square" id="sq3"></div>
-        </div>
-        <div class="row">
-          <div class="square" id="sq4"></div>
-          <div class="square" id="sq5"></div>
-          <div class="square" id="sq6"></div>
-        </div>
-        <div class="row">
-          <div class="square" id="sq7"></div>
-          <div class="square" id="sq8"></div>
-          <div class="square" id="sq9"></div>
-        </div>
-      </div>
-      
+  <head>
+    <style>
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        border: 1px solid black;
+      }
+      .cell {
+        font-size: 36px;
+        text-align: center;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board">
+      <div class="cell" id="cell-0"></div>
+      <div class="cell" id="cell-1"></div>
+      <div class="cell" id="cell-2"></div>
+      <div class="cell" id="cell-3"></div>
+      <div class="cell" id="cell-4"></div>
+      <div class="cell" id="cell-5"></div>
+      <div class="cell" id="cell-6"></div>
+      <div class="cell" id="cell-7"></div>
+      <div class="cell" id="cell-8"></div>
+    </div>
+    <script>
+      let cells = document.querySelectorAll(".cell");
+      let currentPlayer = "X";
+      for (let i = 0; i < cells.length; i++) {
+        cells[i].addEventListener("click", function(event) {
+          if (event.target.innerHTML === "") {
+            event.target.innerHTML = currentPlayer;
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
